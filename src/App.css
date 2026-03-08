@@ -1,0 +1,40 @@
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.main-wrapper {
+  flex: 1;
+  margin-left: 260px;
+  position: relative;
+}
+
+.content {
+  padding: 70px 2rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-container {
+  min-height: 50vh;
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--accent-primary);
+}
+
+@media (max-width: 1024px) {
+  .main-wrapper {
+    margin-left: 60px;
+  }
+
+  .content {
+    padding: 70px 1rem 1rem;
+  }
+}
