@@ -1,16 +1,18 @@
 .app-container {
-  width: 100%;
+  width: min(1536px, calc(100% - 8rem));
+  margin: 0 auto;
   position: relative;
 }
 
 .top-nav {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1536px, calc(100% - 8rem));
   display: flex;
   justify-content: space-between;
-  padding: 2rem 4rem;
+  padding: 2rem 0;
   z-index: 100;
   mix-blend-mode: difference;
 }
@@ -38,14 +40,17 @@
 
 /* Section Shared Layout */
 .section-container {
-  padding: 8rem 4rem;
+  padding: 8rem 0;
   border-top: 1px solid var(--border-color);
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
   gap: 4rem;
 }
 
 .section-sticky-header {
-  width: 40%;
+  width: 100%;
+  min-width: 0;
+  align-self: start;
   position: sticky;
   top: 8rem;
   height: max-content;
@@ -76,19 +81,24 @@
 }
 
 .section-content {
-  width: 60%;
+  width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 4rem;
 }
 
 @media (max-width: 768px) {
+  .app-container {
+    width: calc(100% - 4rem);
+  }
   .top-nav {
-    padding: 1.5rem 2rem;
+    width: calc(100% - 4rem);
+    padding: 1.5rem 0;
   }
   .section-container {
-    flex-direction: column;
-    padding: 6rem 2rem;
+    grid-template-columns: 1fr;
+    padding: 6rem 0;
   }
   .section-sticky-header {
     width: 100%;

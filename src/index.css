@@ -19,8 +19,9 @@ html, body {
   background-color: var(--bg-color);
   color: var(--text-primary);
   font-family: 'Inter', sans-serif;
+  font-size: 15px;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   scroll-behavior: smooth;
   cursor: none; /* Hide default cursor for the ghost effect */
 }
@@ -50,20 +51,7 @@ html, body {
   background: var(--text-secondary);
 }
 
-/* Ghost Cursor Effect */
-.cursor-ghost {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  transition: opacity 0.3s ease;
-}
+
 
 /* Links */
 a {

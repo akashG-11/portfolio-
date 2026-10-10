@@ -1,0 +1,39 @@
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    margin-left: -10px; /* Center perfectly on mouse */
+    margin-top: -10px;
+    border-radius: 50%;
+    background-color: white;
+    mix-blend-mode: difference; /* Inverts colors */
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+    transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, opacity 0.2s ease;
+}
+
+/* Hide default cursor only when the custom cursor is active */
+@media (pointer: fine) {
+    html, body, a, button, input, textarea, .interactable {
+        cursor: none !important;
+    }
+}
+
+.custom-cursor.hovering-clickable,
+.custom-cursor.hovering-text {
+    width: 60px;
+    height: 60px;
+    margin-left: -30px;
+    margin-top: -30px;
+    background-color: white; /* With difference blend mode, this completely inverts the element underneath */
+}
+
+.custom-cursor.clicking {
+    width: 72px;
+    height: 72px;
+    margin-left: -36px;
+    margin-top: -36px;
+}
