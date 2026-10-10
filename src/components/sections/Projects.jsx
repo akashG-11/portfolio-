@@ -42,7 +42,7 @@ const Projects = () => {
                 <h2 className="section-title font-display">Selected Works</h2>
                 <p className="section-desc">Engineered systems, interactive web applications, and hardware solutions focusing on performance and architecture.</p>
                 <div className="resume-link font-mono">
-                    <a href="https://github.com/KarthikSundaram" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/akashG-11" target="_blank" rel="noopener noreferrer">
                         Explore on GitHub ↗
                     </a>
                 </div>

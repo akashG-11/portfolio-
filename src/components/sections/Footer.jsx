@@ -11,9 +11,9 @@ const Footer = () => {
                     <span className="font-mono text-xs">Alive / Online</span>
                 </div>
                 <div className="footer-links font-mono">
-                    <a href="https://github.com/KarthikSundaram" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a href="https://linkedin.com/in/karthiksundaram" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="mailto:hello@example.com">Email</a>
+                    <a href="https://github.com/akashG-11" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/karthiksg11/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:akashkarthi10g@gmail.com">Email</a>
                 </div>
             </div>
             

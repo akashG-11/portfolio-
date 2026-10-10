@@ -28,9 +28,9 @@ function App() {
       <nav className="top-nav">
         <a href="/" className="logo">KG</a>
         <div className="nav-links font-mono">
-          <a href="#projects">github</a>
-          <a href="#about">linkedin</a>
-          <a href="mailto:hello@example.com">email</a>
+          <a href="https://github.com/akashG-11" target="_blank" rel="noopener noreferrer">github</a>
+          <a href="https://www.linkedin.com/in/karthiksg11/" target="_blank" rel="noopener noreferrer">linkedin</a>
+          <a href="mailto:akashkarthi10g@gmail.com">email</a>
         </div>
       </nav>
 
