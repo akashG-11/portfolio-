@@ -1,47 +1,49 @@
 import React from 'react';
-import { MousePointer2, Download, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import './Hero.css';
-import photo from '../../assets/WhatsApp Image 2026-03-08 at 7.00.42 PM.jpeg';
 
 const Hero = () => {
     return (
-        <section id="hero" className="hero-section">
-            <div className="hero-content-wrapper fade-in">
-                <div className="hero-photo-container">
-                    <div className="photo-placeholder">
-                        <img src={photo} alt="Karthik Sundaram" />
-                    </div>
-                    <div className="photo-glow"></div>
-                </div>
-
-                <div className="hero-text-content">
-                    <h1 className="hero-title">
-                        Building <span className="text-gradient">Scalable Web</span> <br />
-                        Solutions & Innovative Hardware.
-                    </h1>
-
-                    <p className="hero-description">
-                        I'm <span className="text-highlight">Karthik Sundaram G</span>, a BTech IT student and Full-Stack Developer
-                        passionate about Python, React, and creating seamless digital experiences.
-                    </p>
-
-                    <div className="hero-btns fade-in">
-                        <button className="btn-primary" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>
-                            View My Work <ArrowRight size={20} />
-                        </button>
-                        <a href="/karthik_sundaram.pdf" target="_blank" rel="noopener noreferrer" download="Karthik_Sundaram_Resume.pdf" className="btn-secondary">
-                            Download Resume <Download size={20} />
-                        </a>
-                    </div>
-                </div>
+        <section className="hero-section">
+            <div className="hero-content">
+                <motion.h1 
+                    className="hero-main-title font-display"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                >
+                    <span className="block">
+                        I'm Karthik <span className="text-tertiary">—</span> a BTech IT student
+                    </span>
+                    <span className="block text-secondary">
+                        and Full-Stack Developer
+                    </span>
+                    <span className="block text-tertiary font-light">
+                        building scalable web solutions &
+                    </span>
+                    <span className="block text-tertiary font-light">
+                        innovative hardware.
+                    </span>
+                </motion.h1>
+                
+                <motion.blockquote 
+                    className="hero-quote"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                >
+                    <p className="font-mono">“Driven by a deep curiosity for how things work—both in the digital world and physical hardware.”</p>
+                </motion.blockquote>
             </div>
-
-            <div className="hero-scroll fade-in">
-                <div className="scroll-icon">
-                    <MousePointer2 size={16} />
-                </div>
-                <span>Scroll to explore</span>
-            </div>
+            
+            <motion.div 
+                className="scroll-indicator"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 1 }}
+            >
+                <a href="#overview">↓</a>
+            </motion.div>
         </section>
     );
 };

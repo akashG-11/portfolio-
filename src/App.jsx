@@ -1,66 +1,47 @@
-import React, { useState, useEffect } from 'react';
-import Sidebar from './components/layout/Sidebar';
-import TopBar from './components/layout/TopBar';
-import CommandPalette from './components/layout/CommandPalette';
-import Hero from './components/sections/Hero';
-import About from './components/sections/About';
-import Skills from './components/sections/Skills';
-import Projects from './components/sections/Projects';
-import Experience from './components/sections/Experience';
-import Education from './components/sections/Education';
-import Contact from './components/sections/Contact';
-import { ThemeProvider } from './context/ThemeContext';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import Hero from './components/sections/Hero';
+import Overview from './components/sections/Overview';
+import Projects from './components/sections/Projects';
+import Footer from './components/sections/Footer';
 
 function App() {
-  const [activeSection, setActiveSection] = useState('hero');
-  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: 0
+    const handleMouseMove = (e) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
     };
 
-    const handleIntersect = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleIntersect, observerOptions);
-    const sections = ['hero', 'about', 'projects', 'skills', 'experience', 'education', 'contact'];
-
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   return (
-    <ThemeProvider>
-      <div className="app-container">
-        <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
-        <div className="main-wrapper">
-          <TopBar onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />
-          <CommandPalette isOpen={isCommandPaletteOpen} setIsOpen={setIsCommandPaletteOpen} />
-          <main className="content">
-            <Hero />
-            <About />
-            <Projects />
-            <Skills />
-            <Experience />
-            <Education />
-            <Contact />
-          </main>
+    <div className="app-container">
+      {/* Ghost Mouse Tracking */}
+      <div 
+        className="cursor-ghost" 
+        style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
+      ></div>
+
+      <nav className="top-nav">
+        <a href="/" className="logo">KG</a>
+        <div className="nav-links font-mono">
+          <a href="#projects">github</a>
+          <a href="#about">linkedin</a>
+          <a href="mailto:hello@example.com">email</a>
         </div>
-      </div>
-    </ThemeProvider>
+      </nav>
+
+      <main>
+        <Hero />
+        <Overview />
+        <Projects />
+      </main>
+
+      <Footer />
+    </div>
   );
 }
 

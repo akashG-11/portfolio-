@@ -1,0 +1,74 @@
+.resume-link {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+}
+
+.resume-link a {
+    color: var(--text-secondary);
+}
+
+.resume-link a:hover {
+    color: var(--text-primary);
+}
+
+.overview-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.overview-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.overview-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--border-color);
+}
+
+.overview-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
+    cursor: default;
+}
+
+.overview-item:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.overview-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.item-role {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-primary);
+}
+
+.item-date {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.item-company {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+}
+
+.item-desc {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.5;
+}

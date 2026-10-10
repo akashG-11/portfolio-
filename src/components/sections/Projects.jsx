@@ -1,59 +1,87 @@
 import React from 'react';
-import { ExternalLink, Github, Code2, Cpu } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { fadeInUp, staggerContainer, scaleIn } from '../../hooks/animations';
 import './Projects.css';
 
 const projects = [
     {
+        id: "01",
         title: "E-Learning Platform",
-        description: "A full-stack web application designed to deliver online courses and learning content. Features include course creation, user enrollment, authentication, and progress tracking.",
-        tech: ["React.js", "Django", "REST Framework", "PostgreSQL"],
-        links: { github: "#", external: "#" },
-        icon: Code2,
-        type: "Full-Stack"
+        type: "Full-Stack Web App",
+        role: "React, Django",
+        year: "2025",
+        desc: "A full-stack web application designed to deliver online courses and learning content. Features include course creation, user enrollment, authentication, and progress tracking.",
+        stack: "React.js, Django, PostgreSQL",
+        link: "#",
+        bg: "linear-gradient(to bottom, #111, #000)"
     },
     {
-        title: "Pipeline Surveillance RC Car",
-        description: "Developed an RC car to monitor pipelines for surveillance purposes using Arduino, ESP32, and custom hardware integration for motor control and sensing.",
-        tech: ["Arduino IDE", "ESP32", "Hardware Integration", "Sensors"],
-        links: { github: "#", external: "#" },
-        icon: Cpu,
-        type: "Hardware / IoT"
+        id: "02",
+        title: "Pipeline RC Car",
+        type: "Hardware / IoT",
+        role: "Arduino, ESP32",
+        year: "2024",
+        desc: "Developed an RC car to monitor pipelines for surveillance purposes using Arduino, ESP32, and custom hardware integration for motor control and sensing.",
+        stack: "Arduino IDE, ESP32, Sensors",
+        link: "#",
+        bg: "linear-gradient(to bottom, #1a1a1a, #000)"
     }
 ];
 
+const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-100px" },
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+};
+
 const Projects = () => {
     return (
-        <section id="projects" className="projects-section">
-            <motion.h2 className="section-title" {...fadeInUp}>Featured Projects</motion.h2>
-            <motion.div className="projects-grid" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true }}>
-                {projects.map((project, idx) => (
-                    <motion.div key={idx} className="project-card" variants={fadeInUp}>
-                        <div className="project-header">
-                            <div className="project-type">{project.type}</div>
-                            <div className="project-links">
-                                <a href={project.links.github} aria-label="GitHub"><Github size={18} /></a>
-                                <a href={project.links.external} aria-label="Visit site"><ExternalLink size={18} /></a>
+        <section id="projects" className="section-container">
+            <div className="section-sticky-header">
+                <span className="section-label font-mono">[ 02 // SELECTED WORKS ]</span>
+                <h2 className="section-title font-display">Selected Works</h2>
+                <p className="section-desc">Engineered systems, interactive web applications, and hardware solutions focusing on performance and architecture.</p>
+                <div className="resume-link font-mono">
+                    <a href="https://github.com/KarthikSundaram" target="_blank" rel="noopener noreferrer">
+                        Explore on GitHub ↗
+                    </a>
+                </div>
+            </div>
+
+            <div className="section-content projects-content">
+                {projects.map((proj) => (
+                    <motion.article key={proj.id} className="project-card-wrapper" {...fadeInUp}>
+                        <div className="project-header-top">
+                            <h3 className="project-title font-display">
+                                <a href={proj.link}>{proj.title} <span className="font-mono text-xs">[OPEN ↗]</span></a>
+                            </h3>
+                            <span className="project-id font-mono">[ {proj.id} ]</span>
+                        </div>
+                        
+                        <a href={proj.link} className="project-image-container" style={{ background: proj.bg }}>
+                            <div className="project-hover-btn font-mono">Inspect Code →</div>
+                        </a>
+
+                        <div className="project-details">
+                            <div className="project-specs font-mono">
+                                <span className="spec-label">TYPE</span>
+                                <span className="spec-value">{proj.type}</span>
+                                <span className="spec-label">ROLE</span>
+                                <span className="spec-value">{proj.role}</span>
+                                <span className="spec-label">YEAR</span>
+                                <span className="spec-value">{proj.year}</span>
+                            </div>
+                            <div className="project-desc-container">
+                                <p className="project-desc-text">{proj.desc}</p>
+                                <div className="project-stack font-mono">
+                                    <span className="stack-label">STACK</span>
+                                    <span className="stack-value">{proj.stack}</span>
+                                </div>
                             </div>
                         </div>
-
-                        <div className="project-body">
-                            <project.icon size={32} className="project-main-icon" />
-                            <h3>{project.title}</h3>
-                            <p>{project.description}</p>
-                        </div>
-
-                        <div className="project-footer">
-                            <div className="tech-stack">
-                                {project.tech.map((t, tIdx) => (
-                                    <span key={tIdx} className="tech-tag">{t}</span>
-                                ))}
-                            </div>
-                        </div>
-                    </motion.div>
+                    </motion.article>
                 ))}
-            </motion.div>
+            </div>
         </section>
     );
 };
