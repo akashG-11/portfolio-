@@ -30,7 +30,7 @@ function App() {
         <div className="nav-links font-mono">
           <a href="https://github.com/akashG-11" target="_blank" rel="noopener noreferrer">github</a>
           <a href="https://www.linkedin.com/in/karthiksg11/" target="_blank" rel="noopener noreferrer">linkedin</a>
-          <a href="mailto:akashkarthi10g@gmail.com">email</a>
+          <a href="mailto:akashkarthi10g@gmail.com">akashkarthi10g@gmail.com</a>
         </div>
       </nav>
 
